@@ -3,17 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>Make Your Own Mondrian!</title>
+    <link rel="stylesheet" href="skeleton.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
   </head>
   <body>
-    <h1>Make Your Own Mondrian</h1>
-    <h3>Refresh to generate a new canvas</h3>
-    <div class="palette">
-
+    <div class="container">
+      <div class="row">
+        <h1>Make Your Own Mondrian</h1>
+      </div>
+      <div class="row">
+        <h3>Refresh to generate a new canvas</h3>
+      </div>
+      <div class="row">
+        <div class="three columns">
+          <div id="palette"></div>
+        </div>
+        <div class="nine columns">
+          <div id="grid"></div>
+        </div>
+      </div>
+      <div class="row">
+        <a href="https://en.wikipedia.org/wiki/Piet_Mondrian">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Piet_Mondriaan.jpg" alt="Mondrian"/>
+        </a>
+      </div>
     </div>
-    <a href="https://en.wikipedia.org/wiki/Piet_Mondrian">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Piet_Mondriaan.jpg"/>
-    </a>
     <script src="script.js"></script>
   </body>
 </html>

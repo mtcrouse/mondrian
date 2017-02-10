@@ -1,30 +1,26 @@
+'use strict'
 
-var body = document.querySelector('body');
-
-var grid = document.createElement('div');
-grid.className = 'grid';
-body.appendChild(grid);
-
-var palette = document.getElementsByClassName('palette')[0];
-
-var colorChoice = 'white';
+let body = document.querySelector('body');
+let grid = document.getElementById('grid');
+let palette = document.getElementById('palette');
+let colorChoice = 'white';
 
 function pixelGrid(size) {
-
   grid.style.width = size + 'px';
   grid.style.height = size + 'px';
   palette.style.height = size + 'px';
 
-  for (var i = 0; i < 16; i++) {
-    var parentPixel = document.createElement('div');
+  for (let i = 0; i < 16; i++) {
+    let parentPixel = document.createElement('div');
+
     parentPixel.style.height = size / 4 + 'px';
     parentPixel.style.width = size / 4 + 'px';
     parentPixel.className = 'pixelParent';
     parentPixel.style.backgroundColor = 'white';
 
-    var random = Math.floor(Math.random() * 10);
-    var randomRotate = Math.floor(Math.random() * 3);
-    var rotateDegrees;
+    let random = Math.floor(Math.random() * 10);
+    let randomRotate = Math.floor(Math.random() * 3);
+    let rotateDegrees;
 
     if (randomRotate === 1) {
       rotateDegrees = 90;
@@ -34,13 +30,13 @@ function pixelGrid(size) {
       rotateDegrees = 270;
     }
 
-
-    var counter = 0;
-    var areaUsed = 0;
+    let counter = 0;
+    let areaUsed = 0;
 
     if (random < 1) {
-      for (var j = 0; j < 4; j++) {
-        childPixel = document.createElement('div');
+      for (let j = 0; j < 4; j++) {
+        let childPixel = document.createElement('div');
+
         childPixel.style.height = size / 8 + 'px';
         childPixel.style.width = size / 8 + 'px';
         childPixel.className = 'pixelChild';
@@ -48,8 +44,9 @@ function pixelGrid(size) {
         parentPixel.appendChild(childPixel);
       }
     } else if (random < 5) {
-      for (var k = 0; k < 2; k++) {
-        childPixel = document.createElement('div');
+      for (let k = 0; k < 2; k++) {
+        let childPixel = document.createElement('div');
+
         childPixel.style.height = size / 4 + 'px';
         childPixel.style.width = size / 8 + 'px';
         childPixel.className = 'pixelChild';
@@ -57,20 +54,23 @@ function pixelGrid(size) {
         parentPixel.appendChild(childPixel);
       }
     } else if (random < 10) {
-      for (var l = 0; l < 2; l++) {
-        childPixel = document.createElement('div');
+      for (let l = 0; l < 2; l++) {
+        let childPixel = document.createElement('div');
+
         childPixel.style.height = size / 8 + 'px';
         childPixel.style.width = size / 8 + 'px';
         childPixel.className = 'pixelChild';
         childPixel.style.backgroundColor = 'white';
         parentPixel.appendChild(childPixel);
       }
-        childPixel = document.createElement('div');
-        childPixel.style.height = size / 8 + 'px';
-        childPixel.style.width = size / 4 + 'px';
-        childPixel.className = 'pixelChild';
-        childPixel.style.backgroundColor = 'white';
-        parentPixel.appendChild(childPixel);
+
+      let childPixel = document.createElement('div');
+
+      childPixel.style.height = size / 8 + 'px';
+      childPixel.style.width = size / 4 + 'px';
+      childPixel.className = 'pixelChild';
+      childPixel.style.backgroundColor = 'white';
+      parentPixel.appendChild(childPixel);
     }
     parentPixel.style.transform = 'rotate(' + rotateDegrees + 'deg)';
 
@@ -78,24 +78,19 @@ function pixelGrid(size) {
   }
 }
 
-
 function makePalette() {
-  var colors = ['red', 'blue', 'yellow', 'black', ];
-  for (var hue of colors) {
-    var newColor = document.createElement('div');
-    var colorName = document.createElement('div');
+  let colors = ['red', 'blue', 'yellow', 'black',];
+  for (let color of colors) {
+    let newColor = document.createElement('div');
     newColor.className = 'colorButton';
-    newColor.style.backgroundColor = hue;
-    colorName.className = 'colorName';
-    colorName.textContent = hue;
-    palette.appendChild(colorName);
+    newColor.style.backgroundColor = color;
     palette.appendChild(newColor);
   }
 }
 
 function chooseColor(event) {
   colorChoice = event.target.style.backgroundColor;
-  for (divs of document.getElementsByClassName('colorButton')) {
+  for (let divs of document.getElementsByClassName('colorButton')) {
     divs.style.border = '1px solid black';
   }
   event.target.style.border = '5px solid';
@@ -122,7 +117,7 @@ function clickColorize(event) {
 pixelGrid(450);
 makePalette();
 
-var brushStatus = false;
+let brushStatus = false;
 
 function mouseDown() {
   brushStatus = true;

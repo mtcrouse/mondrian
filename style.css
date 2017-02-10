@@ -8,8 +8,6 @@ body {
 }
 
 img {
-  position: fixed;
-  right: 15px;
   width: 25%;
 }
 
@@ -27,16 +25,12 @@ img {
   margin: 0;
 }
 
-.grid {
-  position: relative;
+#grid {
   padding: 0;
-  margin: 40px auto;
   background-color: white;
 }
 
-.palette {
-  position: fixed;
-  left: 150px;
+#palette {
   width: 120px;
   border: none;
   margin-top: 100px;
@@ -45,19 +39,6 @@ img {
 .colorButton {
   height: 50px;
   width: 60px;
-  float: left;
   border: 1px solid black;
   box-shadow: none;
-}
-
-.colorName {
-  height: 50px;
-  width: 60px;
-  float: left;
-  border: none;
-  font-family: cursive;
-  text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 50px;
 }
